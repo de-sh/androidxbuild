@@ -14,6 +14,7 @@ RUN /android-ndk.sh arm64 21
 RUN /android-ndk.sh arm 21
 RUN /android-ndk.sh x86 21
 RUN /android-ndk.sh x86_64 21
+RUN rm /android-ndk.sh
 ENV PATH=$PATH:/android-ndk/bin
 
 COPY android-system.sh /

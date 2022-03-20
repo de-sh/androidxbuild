@@ -35,7 +35,8 @@ main() {
     ./build/tools/make_standalone_toolchain.py \
       --install-dir /android-ndk \
       --arch "${arch}" \
-      --api "${api}"
+      --api "${api}" \
+      --force
 
     if (( ${#purge_list[@]} )); then
       apt-get purge --assume-yes --auto-remove "${purge_list[@]}"
@@ -45,7 +46,6 @@ main() {
     popd
 
     rm -rf "${td}"
-    rm "${0}"
 }
 
 main "${@}"
