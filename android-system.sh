@@ -40,7 +40,7 @@ EOF
 
     # more faking
     export ANDROID_JAVA_HOME=/tmp
-    mkdir /tmp/lib/
+    mkdir -p /tmp/lib/
     touch /tmp/lib/tools.jar
 
     apt-get update
@@ -103,9 +103,11 @@ EOF
     set -u
 
     if [[ "${arch}" = "arm" ]]; then
-        mv out/target/product/generic/system/ /
+        cp out/target/product/generic/system / -r
+        rm -r out/target/product/generic/system
     else
-        mv "out/target/product/generic_${arch}/system"/ /
+        cp "out/target/product/generic_${arch}/system" / -r
+        rm -r "out/target/product/generic_${arch}/system"
     fi
 
     # list from https://elinux.org/Android_toolbox
@@ -115,7 +117,7 @@ EOF
         printenv ps reboot renice rm rmdir rmmod route schedtop sendevent \
         setconsole setprop sleep smd start stop sync top touch umount \
         uptime vmstat watchprops wipe; do
-        ln -s /system/bin/toolbox "/system/bin/${tool}"
+        ln -sf /system/bin/toolbox "/system/bin/${tool}"
     done
 
     echo "127.0.0.1 localhost" > /system/etc/hosts

@@ -22,6 +22,7 @@ RUN /android-system.sh arm64
 RUN /android-system.sh arm
 RUN /android-system.sh x86
 RUN /android-system.sh x86_64
+RUN rm /android-system.sh
 
 COPY qemu.sh /
 RUN /qemu.sh aarch64
