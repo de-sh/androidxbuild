@@ -29,6 +29,7 @@ RUN /qemu.sh aarch64
 RUN /qemu.sh arm
 RUN /qemu.sh i386
 RUN /qemu.sh x86_64
+RUN rm /qemu.sh
 
 RUN cp /android-ndk/sysroot/usr/lib/libz.so /system/lib/
 

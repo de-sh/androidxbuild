@@ -213,7 +213,6 @@ main() {
     popd
 
     rm -rf "${td}"
-    rm "${0}"
 }
 
 main "${@}"
