@@ -32,6 +32,7 @@ RUN /qemu.sh x86_64
 RUN rm /qemu.sh
 
 RUN cp /android-ndk/sysroot/usr/lib/libz.so /system/lib/
+RUN rustup component add clippy
 
 # Libz is distributed in the android ndk, but for some unknown reason it is not
 # found in the build process of some crates, so we explicit set the DEP_Z_ROOT
